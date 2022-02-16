@@ -1,0 +1,52 @@
+$black: #000000;
+$white: #ffffff;
+$gray800: #1a202c;
+$gray700: #2d3748;
+$gray600: #4a5568;
+$gray500: #718096;
+$gray400: #a0aec0;
+$red500: #e53e3e;
+$red400: #f56565;
+$red300: #fc8181;
+$red200: #feb2b2;
+$purple600: #6b46c1;
+$purple500: #805ad5;
+$purple400: #9f7aea;
+$purple300: #b794f4;
+$puprle200: #d6bcfa;
+$blue500: #3182ce;
+$blue400: #4299e1;
+$blue300: #63b3ed;
+$blue200: #90cdf4;
+
+// fonts
+
+$firacode: "Fira Code", monospace;
+$montserrat: "Montserrat", sans-serif;
+
+// font-size
+
+$font-22: 22px;
+$font-18: 18px;
+$font-16: 16px;
+$font-14: 14px;
+$font-12: 12px;
+$font-10: 10px;
+
+//mixins
+
+@mixin efectsHover {
+  filter: brightness(0.8);
+}
+
+@mixin flexcolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flexrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
