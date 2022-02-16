@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../utils/axios.config";
-import { PriceFormat } from "../../utils/amountFormat";
-interface ProductsProps {
-  id: string;
-  name: string;
-  full_name: string;
-  brand: string;
-  ammount: number;
-  image: string;
-}
+import { ProductsProps } from "../../interfaces/products.interface";
 
 import "./styles.scss";
+import { Card } from "../../components/Card";
+import { Hader } from "../../components/Header";
 
 export const Home: React.FC = () => {
   const [products, setProducts] = useState<ProductsProps[] | null>(null);
@@ -25,14 +19,16 @@ export const Home: React.FC = () => {
 
   return (
     <div>
+      <Hader />
       <div>
         {products?.map((element) => (
-          <div key={element.id}>
-            <p>{element.name}</p>
-            <p>{element.full_name}</p>
-            <img src={element.image} alt={element.name} />
-            <strong>{PriceFormat(element.ammount)}</strong>
-          </div>
+          <Card
+            key={element.id}
+            ammount={element.ammount}
+            image={element.image}
+            full_name={element.full_name}
+            brand={element.brand}
+          />
         ))}
       </div>
     </div>

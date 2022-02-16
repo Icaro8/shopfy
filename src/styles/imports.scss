@@ -37,6 +37,7 @@ $font-10: 10px;
 
 @mixin efectsHover {
   filter: brightness(0.8);
+  transition: linear 0.2s;
 }
 
 @mixin flexcolumn {
@@ -49,4 +50,14 @@ $font-10: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@mixin flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin borderRadius {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
