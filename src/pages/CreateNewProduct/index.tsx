@@ -1,22 +1,39 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
-import { Hader } from "../../components/Header";
+import { Header } from "../../components/Header";
+import { newProduct } from "../../validation/newProduct.yup";
+import { ProductsProps } from "../../interfaces/products.interface";
 import "./styles.scss";
+import { api } from "../../utils/axios.config";
+import { toast } from "react-toastify";
+
 export const CreateNewProduct: React.FC = () => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = () => {};
+  const onSubmit: SubmitHandler<Partial<ProductsProps>> = (data) => {
+    newProduct.isValid(data).then(async (response) => {
+      if (response) {
+        const status = await api.post("/items", data);
+
+        if (status.status === 201)
+          toast.success("Produto cadastrado", {
+            draggable: true,
+            theme: "light",
+          });
+      }
+    });
+  };
 
   return (
     <div className="containerNewProduct">
-      <Hader />
+      <Header />
       <div className="ContainerFormProduct">
         <h2>Adicionar novo produto</h2>
         <main>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="column">
-              <label htmlFor="name">Nome do Produto</label>
+              <label htmlFor="name">Marca do Produto</label>
               <input type="text" {...register("name")} id="name" />
             </div>
             <div className="column">

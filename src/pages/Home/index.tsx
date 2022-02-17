@@ -1,35 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../utils/axios.config";
 import { ProductsProps } from "../../interfaces/products.interface";
-
+import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 import { Card } from "../../components/Card";
-import { Hader } from "../../components/Header";
+import { Header } from "../../components/Header";
+import { Loading } from "../../components/Loading";
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState<ProductsProps[] | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getProdutcts() {
-      const { data } = await api.get("/items");
-      setProducts(data);
+      const response = await api.get("/items").then((response) => {
+        console.log(response);
+        if (response?.data.length > 0) {
+          setProducts(response.data);
+          setLoading(false);
+        }
+      });
     }
     getProdutcts();
   }, []);
-
+  function searchProduct(id: string) {
+    navigate(`/${id}`);
+  }
   return (
     <div>
-      <Hader />
+      <Header />
       <div>
-        {products?.map((element) => (
-          <Card
-            key={element.id}
-            ammount={element.ammount}
-            image={element.image}
-            full_name={element.full_name}
-            brand={element.brand}
-          />
-        ))}
+        {!loading ? (
+          products?.map((element) => (
+            <Card
+              key={element.id}
+              amount={element.amount}
+              img_url={element.img_url}
+              full_name={element.full_name}
+              name={element.name}
+              description={element.description}
+              onClick={() => searchProduct(element.id)}
+            />
+          ))
+        ) : (
+          <>
+            <Loading />
+          </>
+        )}
       </div>
     </div>
   );

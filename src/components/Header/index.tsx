@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import "./styles.scss";
 
-export const Hader: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <header className="Container-Header">
       <div className="containerTitleShop">

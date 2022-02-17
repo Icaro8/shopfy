@@ -3,26 +3,30 @@ import { ProductsProps } from "../../interfaces/products.interface";
 import { PriceFormat } from "../../utils/amountFormat";
 import "./styles.scss";
 export const Card: React.FC<Partial<ProductsProps>> = ({
-  ammount,
-  brand,
+  amount,
+  description,
   full_name,
-  image,
   name,
+  img_url,
+  onClick,
 }) => {
   return (
     <div className="cardContainer">
       <div className="imgContainer">
-        <img src={image} alt={name} />
+        <img src={img_url} alt={name} />
       </div>
       <div>
         <h3>{full_name}</h3>
       </div>
-      <div>
-        <strong>Marca:{brand}</strong>
+      <div className="containerText">
+        <div className="description">
+          <p>{description}</p>
+        </div>
       </div>
-      <div>
-        <strong>Valor:{PriceFormat(ammount!)}</strong>
+      <div className="value">
+        <strong>Valor:{PriceFormat(amount!)}</strong>
       </div>
+      <button onClick={onClick}>Descrição</button>
     </div>
   );
 };

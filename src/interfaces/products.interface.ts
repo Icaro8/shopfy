@@ -3,6 +3,8 @@ export interface ProductsProps {
   name: string;
   full_name: string;
   brand: string;
-  ammount: number;
-  image: string;
+  amount: number;
+  img_url: string;
+  description: string;
+  onClick: () => void;
 }

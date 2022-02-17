@@ -2,12 +2,12 @@
   "users": [],
   "items": [
     {
-      "id": "1c5acascas",
-      "name": "PS 5",
-      "full_name": "Playstation 5",
-      "brand": "Sony",
-      "ammount": 5000,
-      "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.ibxk.com.br%2F2020%2F08%2F05%2F05125219643289.jpg&f=1&nofb=1"
+      "name": "PS4",
+      "full_name": "Playstation 4",
+      "img_url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhttp2.mlstatic.com%2Fplaystation-4-slim-500gb-ps4-500gb-jogo-the-last-of-us-D_NQ_NP_163415-MLB25244749753_122016-F.jpg&f=1&nofb=1",
+      "amount": "3500",
+      "description": "O PlayStation 4 é uma consola de videojogos, da oitava geração com arquitetura x86, produzida pela empresa Sony Interactive Entertainment e lançado em Novembro de 2013, como a quarta edição da série PlayStation, sucessora da PlayStation 3, competindo directamente com a Wii U da Nintendo e, com a Xbox One da Microsoft.",
+      "id": 1
     }
   ],
   "admin": {
