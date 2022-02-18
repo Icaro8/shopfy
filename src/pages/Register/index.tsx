@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm<User>();
+  const { register, handleSubmit, reset } = useForm<User>();
 
   useEffect(() => {
     document.title = "Login";
@@ -38,6 +38,7 @@ export const LoginPage: React.FC = () => {
                 draggable: true,
               });
               navigate("/home");
+              reset();
             })
             .catch((error) =>
               toast.error(

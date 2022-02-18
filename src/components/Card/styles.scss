@@ -6,7 +6,7 @@
   width: 250px;
   .imgContainer {
     width: 250px;
-    height: 200px;
+    height: 250px;
     img {
       width: 100%;
       height: 100%;
@@ -19,8 +19,9 @@
     gap: 10px;
     .description {
       width: 250px;
-      height: 100px;
+      height: 105px;
       overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .value {
@@ -28,5 +29,16 @@
     display: flex;
     justify-content: flex-start;
     margin-top: 10px;
+  }
+  .product {
+    width: 100%;
+    height: 40px;
+    font-size: $font-16;
+    background-color: $blue500;
+    color: $white;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }

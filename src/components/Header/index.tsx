@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
       </div>
       <div className="navigation">
         <nav>
-          <Link to="/">
+          <Link to="/home">
             <AiFillHome />
             Home
           </Link>

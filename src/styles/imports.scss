@@ -18,7 +18,7 @@ $blue500: #3182ce;
 $blue400: #4299e1;
 $blue300: #63b3ed;
 $blue200: #90cdf4;
-
+$green400: #48bb78;
 // fonts
 
 $firacode: "Fira Code", monospace;
@@ -60,4 +60,9 @@ $font-10: 10px;
 @mixin borderRadius {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+@mixin animationScale {
+  transform: scale(0.8);
+  transition: linear 0.2s;
 }

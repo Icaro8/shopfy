@@ -9,13 +9,13 @@ import { api } from "../../utils/axios.config";
 import { toast } from "react-toastify";
 
 export const CreateNewProduct: React.FC = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit: SubmitHandler<Partial<ProductsProps>> = (data) => {
     newProduct.isValid(data).then(async (response) => {
       if (response) {
         const status = await api.post("/items", data);
-
+        reset();
         if (status.status === 201)
           toast.success("Produto cadastrado", {
             draggable: true,

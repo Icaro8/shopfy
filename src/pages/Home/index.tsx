@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     async function getProdutcts() {
-      const response = await api.get("/items").then((response) => {
+      await api.get("/items").then((response) => {
         console.log(response);
         if (response?.data.length > 0) {
           setProducts(response.data);
@@ -28,9 +28,9 @@ export const Home: React.FC = () => {
     navigate(`/${id}`);
   }
   return (
-    <div>
+    <div className="containerContent">
       <Header />
-      <div>
+      <div className="sectionCards">
         {!loading ? (
           products?.map((element) => (
             <Card

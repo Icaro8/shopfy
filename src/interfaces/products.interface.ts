@@ -6,5 +6,6 @@ export interface ProductsProps {
   amount: number;
   img_url: string;
   description: string;
-  onClick: () => void;
+  onClick?: () => void;
+  handleNavigation?: () => void;
 }

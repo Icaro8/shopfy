@@ -2,7 +2,11 @@ import React from "react";
 import { ProductsProps } from "../../interfaces/products.interface";
 import { PriceFormat } from "../../utils/amountFormat";
 import "./styles.scss";
-export const Card: React.FC<Partial<ProductsProps>> = ({
+interface CardProp extends ProductsProps {
+  onClick: () => void;
+}
+
+export const Card: React.FC<Partial<CardProp>> = ({
   amount,
   description,
   full_name,
@@ -26,7 +30,9 @@ export const Card: React.FC<Partial<ProductsProps>> = ({
       <div className="value">
         <strong>Valor:{PriceFormat(amount!)}</strong>
       </div>
-      <button onClick={onClick}>Descrição</button>
+      <button onClick={onClick} className="product">
+        Descrição
+      </button>
     </div>
   );
 };

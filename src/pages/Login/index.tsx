@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { FaShopify } from "react-icons/fa";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { User } from "../../interfaces/user.interface";
 import { useNavigate } from "react-router-dom";
+
+import { User } from "../../interfaces/user.interface";
 import "./styles.scss";
 import { LoginSchema } from "../../validation/login.yup";
 
@@ -10,13 +11,15 @@ type loginUser = Pick<User, "email" | "password">;
 export const Login: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
   const onSubmit: SubmitHandler<Partial<loginUser>> = (data) => {
     LoginSchema.isValid(data).then((response) => console.log(response));
     console.log(data);
+    reset();
   };
   return (
     <div className="container-login">

@@ -1,0 +1,12 @@
+.containerContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .sectionCards {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    gap: 20px;
+  }
+}
